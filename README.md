@@ -124,4 +124,4 @@ Centers for Medicare & Medicaid Services (CMS)
 ---
 
 ## Author
-Built as a portfolio project to demonstrate core data engineering skills on Snowflake.
+Chaturya Mittapally
