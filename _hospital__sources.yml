@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: raw_hospital
+    description: "Raw Medicare inpatient hospital data loaded from CMS (Centers for Medicare & Medicaid Services)."
+    database: HOSPITAL_PROJECT
+    schema: RAW
+    tables:
+      - name: raw_hospital_charges
+        description: "Medicare Inpatient Hospitals by Provider and Service — contains charges, payments, and discharge volumes per hospital per DRG."
+        columns:
+          - name: RNDRNG_PRVDR_CCN
+            description: "CMS Certification Number — unique identifier for each hospital."
+          - name: RNDRNG_PRVDR_ORG_NAME
+            description: "Hospital name."
+          - name: RNDRNG_PRVDR_STATE_ABRVTN
+            description: "Two-letter state abbreviation."
+          - name: DRG_CD
+            description: "Diagnosis Related Group code — classifies the type of treatment/condition."
+          - name: DRG_DESC
+            description: "Human-readable description of the DRG code."
+          - name: TOT_DSCHRGS
+            description: "Total number of patient discharges for this hospital + DRG combination."
+          - name: AVG_SUBMTD_CVRD_CHRG
+            description: "Average amount billed by the hospital (submitted charge)."
+          - name: AVG_TOT_PYMT_AMT
+            description: "Average total payment received (Medicare + patient + other payers)."
+          - name: AVG_MDCR_PYMT_AMT
+            description: "Average payment from Medicare only."

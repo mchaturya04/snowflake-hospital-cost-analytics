@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_hospital__charges
+    description: >
+      Cleaned and renamed staging view of raw Medicare inpatient hospital charge data.
+      One row per hospital per Diagnosis Related Group (DRG).
+      Source: CMS Medicare Inpatient Hospitals by Provider and Service.
+    columns:
+      - name: provider_id
+        description: "CMS Certification Number — unique hospital identifier."
+        tests:
+          - not_null
+
+      - name: hospital_name
+        description: "Name of the hospital or health system."
+        tests:
+          - not_null
+
+      - name: state
+        description: "Two-letter US state abbreviation where the hospital is located."
+        tests:
+          - not_null
+
+      - name: drg_code
+        description: "Diagnosis Related Group code — classifies type of treatment."
+        tests:
+          - not_null
+
+      - name: drg_description
+        description: "Human-readable description of the DRG code."
+
+      - name: total_discharges
+        description: "Number of Medicare patient discharges for this hospital + DRG."
+
+      - name: avg_billed_amount
+        description: "Average charge submitted by the hospital to Medicare."
+
+      - name: avg_medicare_payment
+        description: "Average amount Medicare actually paid the hospital."
+
+      - name: billing_gap
+        description: "Difference between what the hospital billed and what Medicare paid. Higher = more aggressive billing."
+
+      - name: billed_to_paid_ratio
+        description: "Ratio of billed amount to Medicare payment. National average is ~6x."
